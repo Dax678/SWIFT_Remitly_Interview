@@ -58,7 +58,6 @@ public class DataLoader implements CommandLineRunner {
                 SwiftCode parent = swiftCodeMap.get(parentSwiftCode);
                 if (parent != null) {
                     branch.setParentSwiftCode(parent);
-                    //parent.getBranches().add(branch);
                 }
             }
 
@@ -74,7 +73,7 @@ public class DataLoader implements CommandLineRunner {
 
     private SwiftCode parseRowToSwiftCode(Row row) {
         SwiftCode swiftCode = new SwiftCode();
-        swiftCode.setCountryISO2(row.getCell(0).getStringCellValue());
+        swiftCode.setCountryISO2(row.getCell(0).getStringCellValue().toUpperCase());
         swiftCode.setSwiftCode(row.getCell(1).getStringCellValue());
         swiftCode.setCodeType(row.getCell(2).getStringCellValue());
         swiftCode.setBankName(row.getCell(3).getStringCellValue());
@@ -87,7 +86,7 @@ public class DataLoader implements CommandLineRunner {
         }
 
         swiftCode.setTownName(row.getCell(5).getStringCellValue());
-        swiftCode.setCountryName(row.getCell(6).getStringCellValue());
+        swiftCode.setCountryName(row.getCell(6).getStringCellValue().toUpperCase());
         swiftCode.setTimezone(row.getCell(7).getStringCellValue());
         return swiftCode;
     }

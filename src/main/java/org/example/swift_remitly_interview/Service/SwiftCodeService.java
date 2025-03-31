@@ -58,6 +58,19 @@ public class SwiftCodeService {
 
         try {
             SwiftCode swiftCode = swiftCodeMapper.toSwiftCode(swiftCodeDto);
+
+            if(!swiftCodeDto.getSwiftCode().endsWith("XXX")) {
+                String ParentSwiftCode = swiftCodeDto.getSwiftCode().substring(0, 8) + "XXX";
+                Optional<SwiftCode> optionalSwiftCode = swiftCodeRepository.findBySwiftCode(ParentSwiftCode);
+
+                if(optionalSwiftCode.isEmpty()) {
+                    logger.warn("Parent SWIFT code {} not found", ParentSwiftCode);
+                    throw new SwiftCodeNotFoundException("Parent SWIFT code: {0} not found", ParentSwiftCode);
+                }
+
+                swiftCode.setParentSwiftCode(optionalSwiftCode.get());
+            }
+
             swiftCodeRepository.save(swiftCode);
             return new MessageResponse("SWIFT code has been added successfully.");
         } catch (DataAccessException ex) {
