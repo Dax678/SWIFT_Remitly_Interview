@@ -14,7 +14,7 @@ The project was created for the interview process for an internship at Remitly i
 Make sure you have downloaded xlsx file at "src/main/resources/Interns_2025_SWIFT_CODES.xlsx" path.
 
 Ensure you have the following installed:
-- Java 17+  
+- Java 21 
 - Docker (for Testcontainers)  
 - PostgreSQL
 
