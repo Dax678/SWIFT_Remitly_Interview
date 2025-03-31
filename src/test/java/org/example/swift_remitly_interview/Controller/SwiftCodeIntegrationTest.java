@@ -206,7 +206,7 @@ public class SwiftCodeIntegrationTest {
                         .content(jsonBody))
                 .andDo(print())
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message").value("swiftCode: SWIFT code cannot be empty"));
+                .andExpect(jsonPath("$.message").value("swiftCode: SWIFT code must be either 8 or 11 characters long"));
     }
 
     @Test
@@ -290,7 +290,7 @@ public class SwiftCodeIntegrationTest {
                         .content(jsonBody))
                 .andDo(print())
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message").value("countryISO2: Country ISO2 code cannot be empty"));
+                .andExpect(jsonPath("$.message").value("countryISO2: Country ISO2 code must be exactly 2 characters long"));
     }
 
     @Test

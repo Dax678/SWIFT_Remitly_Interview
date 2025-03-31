@@ -20,7 +20,6 @@ public class SwiftCodeDto {
     @NotBlank(message = "Bank name cannot be empty")
     String bankName;
 
-    @NotBlank(message = "Country ISO2 code cannot be empty")
     @Size(min = 2, max = 2, message = "Country ISO2 code must be exactly 2 characters long")
     String countryISO2;
 
@@ -30,7 +29,6 @@ public class SwiftCodeDto {
     @NotNull(message = "Headquarter status cannot be null")
     Boolean isHeadquarter;
 
-    @NotBlank(message = "SWIFT code cannot be empty")
     @Size(min = 8, max = 11, message = "SWIFT code must be either 8 or 11 characters long")
     String swiftCode;
 
