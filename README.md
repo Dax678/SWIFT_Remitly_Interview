@@ -6,7 +6,7 @@ The project was created for the interview process for an internship at Remitly i
 ## 🏗️ Tech Stack
 - **Backend**: Java, Spring Boot, Spring Data JPA, Hibernate
 - **Database**: PostgreSQL
-- **Testing**: JUnit
+- **Testing**: JUnit, Testcontainers, MockMvc
 
 ## 🔧 Installation & Setup  
 ### Prerequisites  
